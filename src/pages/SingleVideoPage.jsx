@@ -9,7 +9,7 @@ const SingleVideoPage = () => {
   return (
     <div className="App">
       <Navbar />
-      <div className="flex flex-wrap">
+      <div className="main-content">
         <Sidebar />
         <SingleVideo id={videoId} />
       </div>

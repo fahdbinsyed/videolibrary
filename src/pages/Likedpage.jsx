@@ -12,7 +12,7 @@ const Likedpage = () => {
   return (
     <>
       <Navbar />
-      <div className="flex flex-wrap">
+      <div className="main-content">
         <Sidebar />
         <div className="video-listing-header">
           <h2 className="page-heading">
@@ -28,7 +28,13 @@ const Likedpage = () => {
           ) : (
             <div className="video-listing">
               {like.map((video) => {
-                return <Videocard video={video} key={video._id} />;
+                return (
+                  <Videocard 
+                    video={video} 
+                    key={video._id} 
+                    onRemove={(v) => likeDispatch({ type: "REMOVE_FROM_LIKE", payload: v })} 
+                  />
+                );
               })}
             </div>
           )}

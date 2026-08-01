@@ -2,7 +2,7 @@ export const likeReducer = (state, action) => {
   const { like } = state;
   const { type, payload } = action;
   switch (type) {
-    case "ADD_TO_LIKE":
+    case "TOGGLE_LIKE":
       if (like.filter((item) => item._id === payload._id).length === 1)
         return {
           ...state,

@@ -1,24 +1,43 @@
 .sidebar {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 500;
-  min-width: 15.5rem;
-  height: 100%;
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--navbar-height));
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  background-color: var(--dark-grey);
+  background-color: var(--secondary-color);
   position: fixed;
   left: 0;
+  top: var(--navbar-height);
   overflow-y: auto;
   z-index: 5;
+  padding-top: 1.5rem;
+  transition: left var(--transition-speed) ease;
 }
+
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--grey);
+  border-radius: 4px;
+}
+
 .sidebar-icon {
-  padding: 0.8rem 2rem;
+  padding: 0.8rem 1rem;
+  margin: 0 0.8rem 0.2rem 0.8rem;
   display: flex;
-  gap: 1.7rem;
+  gap: 1.2rem;
   align-items: center;
   color: var(--primary-color);
+  transition: all 0.2s ease;
+  border-radius: 10px;
 }
+
+.sidebar-icon:hover {
+  background-color: var(--surface-hover) !important;
+}
+
 .icons {
   font-size: 1.2rem;
 }
@@ -26,11 +45,8 @@
 @media screen and (max-width: 950px) {
   .trans-on {
     left: 0;
-    transition: left 0.5s ease-out;
   }
-
   .trans-off {
-    left: -20rem;
-    transition: left 1s ease-out;
+    left: calc(-1 * var(--sidebar-width));
   }
 }

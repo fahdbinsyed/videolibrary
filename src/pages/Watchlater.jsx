@@ -11,7 +11,7 @@ const Watchlater = () => {
   return (
     <>
       <Navbar />
-      <div className="flex flex-wrap">
+      <div className="main-content">
         <Sidebar />
         <div className="video-listing-header">
           <h2 className="page-heading">
@@ -29,7 +29,13 @@ const Watchlater = () => {
           ) : (
             <div className="video-listing">
               {watchlater.map((video) => {
-                return <Videocard video={video} key={video._id} />;
+                return (
+                  <Videocard 
+                    video={video} 
+                    key={video._id} 
+                    onRemove={(v) => watchlaterDispatch({ type: "REMOVE_FROM_WATCHLATER", payload: v })} 
+                  />
+                );
               })}
             </div>
           )}

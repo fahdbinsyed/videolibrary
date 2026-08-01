@@ -1,64 +1,206 @@
 .navbar {
-  font-family: "Kaushan Script", cursive;
-  padding: 1rem 2rem;
   height: var(--navbar-height);
-  background-color: var(--dark-grey);
+  background-color: var(--surface-color);
+  border-bottom: 1px solid var(--surface-hover);
   display: flex;
   justify-content: space-between;
-  position: sticky;
+  align-items: center;
+  padding: 0 2rem;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: all 0.3s ease;
 }
+
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
+
 .logo {
   width: 2.5rem;
   height: 2.5rem;
 }
+
 .logo-name {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 700;
   color: var(--primary-color);
+  color: var(--primary-color);
+  letter-spacing: -0.5px;
+  letter-spacing: -0.5px;
 }
-.logo,
-.logo-name {
-  cursor: pointer;
-}
+
 .hamburger-icon {
   display: none;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--primary-color);
+  transition: color 0.2s;
 }
-.profile-icon {
-  font-size: 2rem;
+
+.hamburger-icon:hover {
+  color: var(--accent-color);
 }
-.search-bar-div {
-  padding: 0 1rem;
-  width: 35%;
-  height: 2.5rem;
-  background: var(--grey);
-  border-radius: 1rem;
+
+.search-container {
   display: flex;
   align-items: center;
+  flex: 1;
+  max-width: 720px;
+  margin: 0 2rem;
 }
-.search-bar {
+
+.search-bar-form {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  background: #121212;
+  border: 1px solid #303030;
+  border-radius: 40px 0 0 40px;
+  height: 40px;
+  margin-left: 32px;
+}
+
+.search-bar-form:focus-within {
+  border-color: #1c62b9;
+}
+
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--primary-color);
   padding: 0 1rem;
-  background: var(--grey);
-  color: var(--primary-color);
   font-size: 1rem;
-  border: 1px solid transparent;
-  outline: 1px solid transparent;
+  font-family: inherit;
+  outline: none;
+  width: 100%;
 }
-::placeholder {
+
+.search-input::placeholder {
+  color: var(--grey);
+}
+
+.search-btn {
+  background: #222222;
+  border: 1px solid #303030;
+  border-left: none;
+  border-radius: 0 40px 40px 0;
+  height: 40px;
+  width: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #f1f1f1;
+  font-size: 1.2rem;
+  transition: background-color 0.1s;
+  margin: 0;
+  padding: 0;
+}
+
+.search-btn:hover {
+  background-color: #303030;
+}
+
+.mic-btn {
+  background: #181818;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #f1f1f1;
+  font-size: 1.2rem;
+  transition: background-color 0.2s;
+}
+
+.profile-container {
+  position: relative;
+}
+
+.profile-icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navbar-initial {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #9c27b0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 130%;
+  right: 0;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  border: 1px solid var(--surface-hover);
+  border-radius: 12px;
+  background-color: var(--surface-color);
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-item {
+  padding: 0.8rem 1.2rem;
   color: var(--primary-color);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: block;
+}
+
+.dropdown-item:hover {
+  background-color: var(--surface-hover);
+}
+
+.dropdown-divider {
+  border: none;
+  height: 1px;
+  background: var(--border-color);
+  margin: 0.3rem 0;
+}
+
+.text-danger {
+  color: var(--danger-color) !important;
 }
 
 @media screen and (max-width: 950px) {
-  .search-bar-div {
+  .search-container {
     display: none;
   }
+
   .hamburger-icon {
-    display: flex;
-    margin-right: 1rem;
+    display: block;
   }
 }

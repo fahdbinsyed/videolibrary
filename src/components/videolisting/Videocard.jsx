@@ -1,41 +1,87 @@
-import React from "react";
+import React, { useState } from "react";
 import "./videocard.css";
 import { Link } from "react-router-dom";
-import { FaEllipsisV } from "react-icons/fa";
+import { FaListUl, FaTrash } from "react-icons/fa";
 import { useData } from "context/Data-context";
+import { PlaylistModal } from "../playlist/PlaylistModal";
 
-export function Videocard({ video }) {
+export function Videocard({ video, onRemove }) {
   const {
-    historyState: { history },
     historyDispatch,
+    showToast,
   } = useData();
+  const [showPlaylistModal, setShowPlaylistModal] = useState(false);
+
   return (
-    <Link to={`/video/${video._id}`}>
-      <div
-        className="video-card"
-        onClick={() => {
-          historyDispatch({
-            type: "ADD_TO_HISTORY",
-            payload: video,
-          });
-        }}
-      >
-        <img
-          className="video-banner"
-          src={`https://i.ytimg.com/vi/${video._id}/0.jpg`}
-          alt="video-card-img"
-        />
-        <div>
-          <div className="card-header">
-            <h1 className="video-title">{video.title}</h1>
-            <FaEllipsisV />
+    <>
+      <div className="video-card">
+        <Link to={`/video/${video._id}`}>
+          {video.platform === "youtube" || !video.platform ? (
+            <img
+              className="video-banner"
+              src={`https://i.ytimg.com/vi/${video._id}/maxresdefault.jpg`}
+              onError={(e) => { e.target.src = `https://i.ytimg.com/vi/${video._id}/0.jpg`; }}
+              alt={video.title}
+            />
+          ) : (
+            <img
+              className="video-banner"
+              src={video.cover_image}
+              alt={video.title}
+            />
+          )}
+        </Link>
+        <div className="card-content">
+          <div className="channel-avatar">
+            {video.creator.charAt(0).toUpperCase()}
           </div>
-          <div className="video-card-footer">
-            <p>{video.creator}</p>
-            <p>{video.uploaded}</p>
+          <div className="card-details">
+            <div className="card-header">
+              <Link
+                to={`/video/${video._id}`}
+                className="video-title-link"
+              >
+                <h1 className="video-title" title={video.title}>{video.title}</h1>
+              </Link>
+              <div className="card-actions" style={{ display: 'flex', gap: '0.5rem', opacity: 0 }} onMouseEnter={(e) => e.currentTarget.style.opacity = 1} onMouseLeave={(e) => e.currentTarget.style.opacity = 0}>
+                {onRemove && (
+                  <button
+                    className="add-to-playlist-btn text-danger"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onRemove(video);
+                      showToast("Video removed", "success");
+                    }}
+                    title="Remove from list"
+                  >
+                    <FaTrash />
+                  </button>
+                )}
+                <button
+                  className="add-to-playlist-btn"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setShowPlaylistModal(true);
+                  }}
+                  title="Save to Playlist"
+                >
+                  <FaListUl />
+                </button>
+              </div>
+            </div>
+            <div className="video-card-footer">
+              <p className="creator">{video.creator}</p>
+              <p className="date">{video.uploaded}</p>
+            </div>
           </div>
         </div>
       </div>
-    </Link>
+      {showPlaylistModal && (
+        <PlaylistModal
+          video={video}
+          onClose={() => setShowPlaylistModal(false)}
+        />
+      )}
+    </>
   );
 }

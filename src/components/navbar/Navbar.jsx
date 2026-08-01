@@ -1,13 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./navbar.css";
 import { CgProfile } from "react-icons/cg";
-import { BiSearch } from "react-icons/bi";
+import { BiSearch, BiMicrophone } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useData } from "context/Data-context";
 
 export default function Navbar() {
   const { setSidebar } = useData();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+
+  useEffect(() => {
+    const query = searchParams.get("search");
+    if (query) {
+      setSearchQuery(query);
+    } else {
+      setSearchQuery("");
+    }
+  }, [searchParams]);
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/?search=${encodeURIComponent(searchQuery.trim())}`);
+    } else {
+      navigate(`/`);
+    }
+  };
+
   return (
     <div className="navbar">
       <div className="nav-logo">
@@ -21,21 +48,26 @@ export default function Navbar() {
           className="logo"
         />
         <Link to="/" className="logo-name">
-          CricStream
+          Library
         </Link>
       </div>
-      <div className="search-bar-div">
-        <BiSearch />
-        <input
-          type="text"
-          className="search-bar"
-          placeholder="Search for Videos"
-        />
+      
+      <div className="search-container">
+        <form className="search-bar-form" onSubmit={handleSearchSubmit}>
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Search"
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
+        </form>
+        <button className="search-btn" type="submit" onClick={handleSearchSubmit}>
+          <BiSearch />
+        </button>
       </div>
 
-      <div className="profile-icon">
-        <CgProfile />
-      </div>
+      <div className="nav-spacer" style={{ width: "150px" }}></div>
     </div>
   );
 }

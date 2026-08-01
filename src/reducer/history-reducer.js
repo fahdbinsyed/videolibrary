@@ -7,6 +7,11 @@ export const historyReducer = (state, action) => {
         ...state,
         history: [...history, payload],
       };
+    case "REMOVE_FROM_HISTORY":
+      return {
+        ...state,
+        history: history.filter((item) => item._id !== payload._id),
+      };
     case "CLEAR":
       return {
         history: [],

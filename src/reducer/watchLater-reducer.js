@@ -2,7 +2,7 @@ export const watchlaterReducer = (state, action) => {
   const { watchlater } = state;
   const { type, payload } = action;
   switch (type) {
-    case "ADD_TO_WATCHLATER":
+    case "TOGGLE_WATCHLATER":
       if (watchlater.filter((item) => item._id === payload._id).length === 1)
         return {
           ...state,
