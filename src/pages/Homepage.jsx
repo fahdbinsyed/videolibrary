@@ -1,19 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "App.css";
 import Navbar from "components/navbar/Navbar";
 import Sidebar from "components/sidebar/Sidebar";
-import { videos } from "backend/db/videos";
 import { Videocard } from "components/videolisting/Videocard";
 import { useSearchParams } from "react-router-dom";
+import { useData } from "context/Data-context";
+import { AddVideoModal } from "components/addvideo/AddVideoModal";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 function Homepage() {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("search")?.toLowerCase() || "";
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const { videoList, setVideoList, showToast } = useData();
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const scrollRef = useRef(null);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -250, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 250, behavior: "smooth" });
+    }
+  };
 
   const categoryFilteredVideos = selectedCategory === "All" 
-    ? videos 
-    : videos.filter((video) => video.category === selectedCategory);
+    ? videoList 
+    : videoList.filter((video) => video.category === selectedCategory);
 
   const filteredVideos = query
     ? categoryFilteredVideos.filter((video) => 
@@ -22,7 +39,12 @@ function Homepage() {
       )
     : categoryFilteredVideos;
 
-  const categories = ["All", "World Cup", "IPL", "Others"];
+  const categories = ["All", ...new Set(videoList.map(v => v.category))];
+
+  const handleAddVideo = (newVideo) => {
+    setVideoList((prev) => [newVideo, ...prev]);
+    showToast("Video added successfully!", "success");
+  };
 
   return (
     <div className="App">
@@ -31,16 +53,32 @@ function Homepage() {
         <Sidebar />
         <div className="video-listing-header">
           {!query && (
-            <div className="category-items">
-              {categories.map((category) => (
-                <span
-                  key={category}
-                  className={`chips ${selectedCategory === category ? "chip-active" : ""}`}
-                  onClick={() => setSelectedCategory(category)}
-                >
-                  {category}
-                </span>
-              ))}
+            <div className="category-header">
+              <button className="scroll-btn" onClick={scrollLeft}>
+                <FaChevronLeft />
+              </button>
+              <div className="category-scroll-wrapper">
+                <div className="category-items" ref={scrollRef}>
+                  {categories.map((category) => (
+                    <span
+                      key={category}
+                      className={`chips ${selectedCategory === category ? "chip-active" : ""}`}
+                      onClick={() => setSelectedCategory(category)}
+                    >
+                      {category}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <button className="scroll-btn" onClick={scrollRight}>
+                <FaChevronRight />
+              </button>
+              <button 
+                className="add-video-btn chips" 
+                onClick={() => setIsAddModalOpen(true)}
+              >
+                + Add Video
+              </button>
             </div>
           )}
           {query && (
@@ -61,6 +99,12 @@ function Homepage() {
           )}
         </div>
       </div>
+      <AddVideoModal 
+        isOpen={isAddModalOpen} 
+        onClose={() => setIsAddModalOpen(false)}
+        onAddVideo={handleAddVideo}
+        categories={categories.filter(c => c !== "All")}
+      />
     </div>
   );
 }

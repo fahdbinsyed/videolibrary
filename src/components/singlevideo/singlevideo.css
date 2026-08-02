@@ -1,9 +1,9 @@
 .player-wrapper {
   padding: 2rem;
-  width: calc(100% - var(--sidebar-width));
+  width: 100%;
+  box-sizing: border-box;
   max-width: 1200px;
-  margin-left: var(--sidebar-width);
-  margin-right: auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;

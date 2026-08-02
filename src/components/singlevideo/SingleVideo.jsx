@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
 import "./singlevideo.css";
-import { videos } from "backend/db/videos";
+
 import { BiLike } from "react-icons/bi";
 import { FaClock, FaListUl } from "react-icons/fa";
 import { useData } from "context/Data-context";
@@ -9,6 +9,7 @@ import { PlaylistModal } from "../playlist/PlaylistModal";
 
 const SingleVideo = ({ id }) => {
   const {
+    videoList,
     likeState: { like },
     likeDispatch,
     watchlaterState: { watchlater },
@@ -17,7 +18,7 @@ const SingleVideo = ({ id }) => {
     showToast,
   } = useData();
   const [showPlaylistModal, setShowPlaylistModal] = useState(false);
-  const video = videos.find((video) => video._id === id);
+  const video = videoList.find((video) => video._id === id);
 
   useEffect(() => {
     if (video) {

@@ -3,7 +3,7 @@ import { likeReducer } from "reducer/like-reducer";
 import { watchlaterReducer } from "reducer/watchLater-reducer";
 import { historyReducer } from "reducer/history-reducer";
 import { playlistReducer } from "reducer/playlist-reducer";
-
+import { videos as initialVideos } from "backend/db/videos";
 const DataContext = createContext();
 
 const loadFromStorage = (key, defaultValue) => {
@@ -17,6 +17,7 @@ const loadFromStorage = (key, defaultValue) => {
 
 const DataProvider = ({ children }) => {
   const [sidebar, setSidebar] = useState(false);
+  const [videoList, setVideoList] = useState(() => loadFromStorage("videolib_videos", initialVideos));
   const [likeState, likeDispatch] = useReducer(likeReducer, {
     like: loadFromStorage("videolib_like", []),
   });
@@ -41,6 +42,10 @@ const DataProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    localStorage.setItem("videolib_videos", JSON.stringify(videoList));
+  }, [videoList]);
+
+  useEffect(() => {
     localStorage.setItem("videolib_like", JSON.stringify(likeState.like));
   }, [likeState.like]);
 
@@ -61,6 +66,8 @@ const DataProvider = ({ children }) => {
       value={{
         sidebar,
         setSidebar,
+        videoList,
+        setVideoList,
         likeState,
         likeDispatch,
         watchlaterState,

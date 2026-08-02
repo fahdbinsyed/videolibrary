@@ -4,6 +4,7 @@ import React from "react";
 import "App.css";
 import { useData } from "context/Data-context";
 import { Videocard } from "components/videolisting/Videocard";
+import { FaTrash } from "react-icons/fa";
 
 const Historypage = () => {
   const {
@@ -17,28 +18,31 @@ const Historypage = () => {
       <div className="main-content">
         <Sidebar />
         <div className="video-listing-header">
-          <h2 className="page-heading">
-            History{" "}
-            {uniqueVideo.length !== 0
-              ? `(${uniqueVideo.length} ${
-                  uniqueVideo.length === 1 ? "Video" : "Videos"
-                })`
-              : ""}
-          </h2>
+          <div className="page-header-container">
+            <h2 className="page-heading">
+              History{" "}
+              {uniqueVideo.length !== 0
+                ? `(${uniqueVideo.length} ${
+                    uniqueVideo.length === 1 ? "Video" : "Videos"
+                  })`
+                : ""}
+            </h2>
 
-          {uniqueVideo.length !== 0 && (
-            <button
-              className="clear-history-btn"
-              onClick={() => {
-                historyDispatch({
-                  type: "CLEAR",
-                  payload: [],
-                });
-              }}
-            >
-              Clear History
-            </button>
-          )}
+            {uniqueVideo.length !== 0 && (
+              <button
+                className="clear-history-btn"
+                onClick={() => {
+                  historyDispatch({
+                    type: "CLEAR",
+                    payload: [],
+                  });
+                }}
+              >
+                <FaTrash style={{ marginRight: '8px' }} />
+                Clear History
+              </button>
+            )}
+          </div>
 
           {history.length === 0 ? (
             <p className="alert-message">

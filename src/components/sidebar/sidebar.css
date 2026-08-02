@@ -5,9 +5,9 @@
   height: calc(100vh - var(--navbar-height));
   display: flex;
   flex-direction: column;
-  background-color: rgba(11, 15, 25, 0.4);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
+  background-color: rgba(10, 10, 15, 0.2);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border-right: var(--glass-border);
   position: fixed;
   left: 0;

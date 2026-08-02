@@ -43,7 +43,13 @@ export function Videocard({ video, onRemove }) {
               >
                 <h1 className="video-title" title={video.title}>{video.title}</h1>
               </Link>
-              <div className="card-actions" style={{ display: 'flex', gap: '0.5rem', opacity: 0 }} onMouseEnter={(e) => e.currentTarget.style.opacity = 1} onMouseLeave={(e) => e.currentTarget.style.opacity = 0}>
+            </div>
+            <div className="video-card-footer">
+              <div className="footer-text">
+                <p className="creator">{video.creator}</p>
+                <p className="date">{video.uploaded}</p>
+              </div>
+              <div className="card-actions">
                 {onRemove && (
                   <button
                     className="add-to-playlist-btn text-danger"
@@ -68,10 +74,6 @@ export function Videocard({ video, onRemove }) {
                   <FaListUl />
                 </button>
               </div>
-            </div>
-            <div className="video-card-footer">
-              <p className="creator">{video.creator}</p>
-              <p className="date">{video.uploaded}</p>
             </div>
           </div>
         </div>
