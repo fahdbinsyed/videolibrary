@@ -61,3 +61,10 @@
     left: calc(-1 * var(--sidebar-width));
   }
 }
+
+@media screen and (max-width: 600px) {
+  .sidebar {
+    top: 120px;
+    height: calc(100vh - 120px);
+  }
+}

@@ -20,7 +20,7 @@
 
 body {
   background-color: #0a0a0f;
-  background-image: 
+  background-image:
     radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.12), transparent 25%),
     radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.12), transparent 25%);
   background-attachment: fixed;
@@ -131,12 +131,15 @@ body {
   gap: 1rem;
   overflow-x: auto;
   scroll-behavior: smooth;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .category-items::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
+  display: none;
+  /* Chrome, Safari and Opera */
 }
 
 .scroll-btn {
@@ -210,7 +213,8 @@ body {
   flex-shrink: 0;
 }
 
-.chips > span, .chips > div {
+.chips>span,
+.chips>div {
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -280,12 +284,17 @@ body {
   .main-content {
     padding-left: 0;
   }
+
   .video-listing-header {
     width: 100%;
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 600px) {
+  .main-content {
+    padding-top: 130px;
+  }
+
   .video-listing-header {
     padding: 1rem;
   }
@@ -294,7 +303,7 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 1.5rem;
   }
-  
+
   .scroll-btn {
     display: none;
   }

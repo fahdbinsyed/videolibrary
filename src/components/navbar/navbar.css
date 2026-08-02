@@ -235,23 +235,30 @@
 }
 
 @media screen and (max-width: 600px) {
-  .logo-name {
-    display: none;
-  }
   .navbar {
-    padding: 0 10px;
+    padding: 12px 16px;
+    flex-wrap: wrap;
+    height: auto;
+    min-height: var(--navbar-height);
   }
   .nav-logo {
-    gap: 8px;
+    gap: 12px;
+  }
+  .logo-name {
+    display: block;
+    font-size: 1.4rem;
   }
   .search-container {
-    margin: 0 8px;
+    margin: 12px 0 4px 0;
+    width: 100%;
+    flex: 0 0 100%;
+    order: 3;
   }
   .search-bar-form {
     margin-left: 0;
   }
   .search-btn {
-    width: 36px;
+    width: 48px;
   }
   .premium-avatar {
     width: 36px;
