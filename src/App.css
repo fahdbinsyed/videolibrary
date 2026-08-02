@@ -1,20 +1,21 @@
 :root {
-  --primary-color: #f1f1f1;
-  --secondary-color: #0f0f0f;
-  --surface-color: #272727;
-  --surface-hover: #3f3f3f;
-  --border-color: rgba(255, 255, 255, 0.1);
-  --dark-grey: #181818;
-  --grey: #aaaaaa;
-  --accent-color: #ff0000;
-  --accent-hover: #cc0000;
-  --danger-color: #ff0000;
-  --navbar-height: 70px;
-  --sidebar-width: 240px;
-  --glass-blur: none;
-  --glass-shadow: none;
-  --glass-border: none;
-  --transition-speed: 0.2s;
+  --primary-color: #ffffff;
+  --secondary-color: #0B0F19;
+  --surface-color: rgba(30, 41, 59, 0.6);
+  --surface-hover: rgba(51, 65, 85, 0.8);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --dark-grey: #1e293b;
+  --grey: #94a3b8;
+  --accent-color: #6366f1;
+  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  --accent-hover: #8b5cf6;
+  --danger-color: #ef4444;
+  --navbar-height: 72px;
+  --sidebar-width: 260px;
+  --glass-blur: blur(16px);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.05);
+  --transition-speed: 0.3s;
 }
 
 body {
@@ -108,25 +109,30 @@ body {
 }
 
 .category-chips {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.2rem;
   border-radius: 20px;
   background-color: var(--surface-color);
-  color: var(--primary-color);
-  border: none;
+  color: var(--grey);
+  border: 1px solid var(--border-color);
+  backdrop-filter: var(--glass-blur);
   cursor: pointer;
   white-space: nowrap;
   font-size: 0.95rem;
   font-weight: 500;
-  transition: background-color 0.2s, color 0.2s;
+  transition: all 0.3s ease;
 }
 
 .category-chips:hover {
   background-color: var(--surface-hover);
+  color: var(--primary-color);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .category-active {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+  background: var(--accent-gradient);
+  color: var(--primary-color);
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
 }
 
 .chips {
@@ -141,6 +147,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  border: 1px solid var(--border-color);
 }
 
 .chips:hover {
@@ -148,25 +155,27 @@ body {
 }
 
 .chip-active {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+  background: var(--accent-gradient);
+  color: var(--primary-color);
+  border-color: transparent;
 }
 
 /* Buttons */
 .btn-primary {
-  background-color: var(--accent-color);
+  background: var(--accent-gradient);
   color: white;
   border: none;
-  padding: 8px 16px;
+  padding: 8px 18px;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
 }
 
 .btn-primary:hover {
-  background-color: var(--accent-hover);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
 }
 
 .clear-history-btn {

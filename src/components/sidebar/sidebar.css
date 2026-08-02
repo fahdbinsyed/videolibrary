@@ -5,7 +5,10 @@
   height: calc(100vh - var(--navbar-height));
   display: flex;
   flex-direction: column;
-  background-color: var(--secondary-color);
+  background-color: rgba(11, 15, 25, 0.4);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-right: var(--glass-border);
   position: fixed;
   left: 0;
   top: var(--navbar-height);
@@ -29,13 +32,21 @@
   display: flex;
   gap: 1.2rem;
   align-items: center;
-  color: var(--primary-color);
-  transition: all 0.2s ease;
+  color: var(--grey);
+  transition: all 0.3s ease;
   border-radius: 10px;
 }
 
 .sidebar-icon:hover {
-  background-color: var(--surface-hover) !important;
+  background-color: var(--surface-hover);
+  color: var(--primary-color);
+  transform: translateX(4px);
+}
+
+.sidebar-icon.active {
+  background: var(--accent-gradient);
+  color: var(--primary-color);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
 }
 
 .icons {

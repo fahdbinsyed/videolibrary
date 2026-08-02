@@ -67,7 +67,11 @@ export default function Navbar() {
         </button>
       </div>
 
-      <div className="nav-spacer" style={{ width: "150px" }}></div>
+      <div className="profile-container">
+        <div className="premium-avatar" onClick={() => setIsProfileOpen(!isProfileOpen)}>
+          I
+        </div>
+      </div>
     </div>
   );
 }

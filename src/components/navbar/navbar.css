@@ -1,7 +1,9 @@
 .navbar {
   height: var(--navbar-height);
-  background-color: var(--surface-color);
-  border-bottom: 1px solid var(--surface-hover);
+  background-color: rgba(11, 15, 25, 0.7);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: var(--glass-border);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -58,15 +60,17 @@
   display: flex;
   align-items: center;
   flex: 1;
-  background: #121212;
-  border: 1px solid #303030;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
   border-radius: 40px 0 0 40px;
   height: 40px;
   margin-left: 32px;
+  transition: all 0.3s ease;
 }
 
 .search-bar-form:focus-within {
-  border-color: #1c62b9;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.3);
 }
 
 .search-input {
@@ -86,8 +90,8 @@
 }
 
 .search-btn {
-  background: #222222;
-  border: 1px solid #303030;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
   border-left: none;
   border-radius: 0 40px 40px 0;
   height: 40px;
@@ -98,13 +102,13 @@
   cursor: pointer;
   color: #f1f1f1;
   font-size: 1.2rem;
-  transition: background-color 0.1s;
+  transition: background-color 0.2s;
   margin: 0;
   padding: 0;
 }
 
 .search-btn:hover {
-  background-color: #303030;
+  background-color: var(--surface-hover);
 }
 
 .mic-btn {
@@ -142,6 +146,28 @@
   justify-content: center;
   font-size: 1rem;
   font-weight: 500;
+}
+
+.premium-avatar {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  color: #ffffff;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.premium-avatar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
 }
 
 .profile-dropdown {
