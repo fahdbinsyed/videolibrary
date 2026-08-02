@@ -8,6 +8,7 @@ import { Videocard } from "components/videolisting/Videocard";
 const Likedpage = () => {
   const {
     likeState: { like },
+    handleLike,
   } = useData();
   return (
     <>
@@ -32,7 +33,7 @@ const Likedpage = () => {
                   <Videocard 
                     video={video} 
                     key={video._id} 
-                    onRemove={(v) => likeDispatch({ type: "REMOVE_FROM_LIKE", payload: v })} 
+                    onRemove={(v) => handleLike(v)} 
                   />
                 );
               })}

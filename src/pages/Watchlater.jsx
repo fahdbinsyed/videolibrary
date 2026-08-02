@@ -7,6 +7,7 @@ import { Videocard } from "components/videolisting/Videocard";
 const Watchlater = () => {
   const {
     watchlaterState: { watchlater },
+    handleWatchLater,
   } = useData();
   return (
     <>
@@ -33,7 +34,7 @@ const Watchlater = () => {
                   <Videocard 
                     video={video} 
                     key={video._id} 
-                    onRemove={(v) => watchlaterDispatch({ type: "REMOVE_FROM_WATCHLATER", payload: v })} 
+                    onRemove={(v) => handleWatchLater(v)} 
                   />
                 );
               })}

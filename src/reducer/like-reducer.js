@@ -18,9 +18,11 @@ export const likeReducer = (state, action) => {
         ...state,
         like: [...like.filter((item) => item._id !== payload._id)],
       };
+    case "SET_LIKES":
+      return { ...state, like: payload };
     case "CLEAR":
-      return payload;
-    case "default":
+      return { like: [] };
+    default:
       return state;
   }
 };

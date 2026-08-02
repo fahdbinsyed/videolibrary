@@ -74,8 +74,8 @@ export default function Navbar() {
         <div className="premium-avatar" onClick={() => setIsProfileOpen(!isProfileOpen)}>
           {user && user.photoURL ? (
             <img src={user.photoURL} alt="Profile" className="avatar-img" />
-          ) : user && user.displayName ? (
-            user.displayName.charAt(0).toUpperCase()
+          ) : user && user.firstName ? (
+            user.firstName.charAt(0).toUpperCase()
           ) : (
             <CgProfile style={{ fontSize: '1.4rem' }} />
           )}
@@ -86,7 +86,7 @@ export default function Navbar() {
             {user ? (
               <>
                 <div className="dropdown-user-info">
-                  <p className="dropdown-name">{user.displayName}</p>
+                  <p className="dropdown-name">{user.firstName} {user.lastName}</p>
                   <p className="dropdown-email">{user.email}</p>
                 </div>
                 <hr className="dropdown-divider" />

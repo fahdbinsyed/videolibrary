@@ -1,61 +1,57 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-// import { auth, googleProvider } from "../firebase";
-// import { signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
+import api from "../services/api";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem('user');
+    return savedUser ? JSON.parse(savedUser) : null;
+  });
+  const [token, setToken] = useState(() => localStorage.getItem('token') || null);
+  const [loading, setLoading] = useState(false);
 
-  /* 
-  // UNCOMMENT THIS BLOCK ONCE YOU HAVE YOUR FIREBASE CONFIG SETUP IN firebase.js
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+    if (user && token) {
+      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('token', token);
+    } else {
+      localStorage.removeItem('user');
+      localStorage.removeItem('token');
+    }
+  }, [user, token]);
+
+  const loginWithCredentials = async (email, password) => {
+    setLoading(true);
+    try {
+      const response = await api.post('/auth/login', { email, password });
+      setUser(response.data.foundUser);
+      setToken(response.data.encodedToken);
+      return response.data;
+    } catch (error) {
+      console.error("Login failed:", error.response?.data?.errors || error.message);
+      throw error;
+    } finally {
       setLoading(false);
-    });
-    return () => unsubscribe();
-  }, []);
-
-  const loginWithGoogle = async () => {
-    try {
-      await signInWithPopup(auth, googleProvider);
-    } catch (error) {
-      console.error("Error logging in:", error);
     }
   };
 
-  const logout = async () => {
+  const loginWithGoogle = async () => {
     try {
-      await signOut(auth);
-    } catch (error) {
-      console.error("Error logging out:", error);
+      await loginWithCredentials('fahdbinsyed@gmail.com', 'fahdbinsyed12345');
+    } catch (e) {
+      console.error(e);
     }
   };
-  */
 
-  // --- MOCK AUTH FOR NOW UNTIL FIREBASE CONFIG IS PROVIDED ---
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 500);
-  }, []);
-
-  const loginWithGoogle = async () => {
-    setUser({
-      displayName: "Guest User",
-      email: "guest@example.com",
-      photoURL: "https://ui-avatars.com/api/?name=Guest+User&background=6366f1&color=fff",
-    });
-  };
-
-  const logout = async () => {
+  const logout = () => {
     setUser(null);
+    setToken(null);
   };
-  // -------------------------------------------------------------
 
   return (
-    <AuthContext.Provider value={{ user, loading, loginWithGoogle, logout }}>
-      {!loading && children}
+    <AuthContext.Provider value={{ user, token, loading, loginWithGoogle, loginWithCredentials, logout }}>
+      {children}
     </AuthContext.Provider>
   );
 };

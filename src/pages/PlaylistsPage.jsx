@@ -7,15 +7,12 @@ import { Link } from "react-router-dom";
 import { FaTrash, FaPlayCircle } from "react-icons/fa";
 
 export function PlaylistsPage() {
-  const { playlistState, playlistDispatch } = useData();
+  const { playlistState, removePlaylist } = useData();
   const { playlists } = playlistState;
 
   const handleDeletePlaylist = (playlistId, e) => {
     e.preventDefault();
-    playlistDispatch({
-      type: "DELETE_PLAYLIST",
-      payload: playlistId,
-    });
+    removePlaylist(playlistId);
   };
 
   return (

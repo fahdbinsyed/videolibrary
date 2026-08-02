@@ -9,7 +9,8 @@ import { FaTrash } from "react-icons/fa";
 const Historypage = () => {
   const {
     historyState: { history },
-    historyDispatch,
+    removeFromHistory,
+    clearHistory
   } = useData();
   let uniqueVideo = [...new Set(history)];
   return (
@@ -32,10 +33,7 @@ const Historypage = () => {
               <button
                 className="clear-history-btn"
                 onClick={() => {
-                  historyDispatch({
-                    type: "CLEAR",
-                    payload: [],
-                  });
+                  clearHistory();
                 }}
               >
                 <FaTrash style={{ marginRight: '8px' }} />
@@ -55,7 +53,7 @@ const Historypage = () => {
                   <Videocard 
                     video={video} 
                     key={video._id} 
-                    onRemove={(v) => historyDispatch({ type: "REMOVE_FROM_HISTORY", payload: v })}
+                    onRemove={(v) => removeFromHistory(v._id)}
                   />
                 );
               })}

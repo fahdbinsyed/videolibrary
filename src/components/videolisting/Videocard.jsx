@@ -1,36 +1,42 @@
 import React, { useState } from "react";
 import "./videocard.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaListUl, FaTrash } from "react-icons/fa";
 import { useData } from "context/Data-context";
 import { PlaylistModal } from "../playlist/PlaylistModal";
 
 export function Videocard({ video, onRemove }) {
   const {
-    historyDispatch,
+    addToHistory,
     showToast,
   } = useData();
   const [showPlaylistModal, setShowPlaylistModal] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
-      <div className="video-card">
-        <Link to={`/video/${video._id}`}>
-          {video.platform === "youtube" || !video.platform ? (
-            <img
-              className="video-banner"
-              src={`https://i.ytimg.com/vi/${video._id}/maxresdefault.jpg`}
-              onError={(e) => { e.target.src = `https://i.ytimg.com/vi/${video._id}/0.jpg`; }}
-              alt={video.title}
-            />
-          ) : (
-            <img
-              className="video-banner"
-              src={video.cover_image}
-              alt={video.title}
-            />
-          )}
-        </Link>
+      <div className="video-card cursor" onClick={() => {
+          addToHistory(video);
+          navigate(`/video/${video._id}`);
+        }}>
+        <div onClick={(e) => e.stopPropagation()}>
+          <Link to={`/video/${video._id}`}>
+            {video.platform === "youtube" || !video.platform ? (
+              <img
+                className="video-banner"
+                src={`https://i.ytimg.com/vi/${video._id}/hqdefault.jpg`}
+                onError={(e) => { e.target.src = `https://i.ytimg.com/vi/${video._id}/0.jpg`; }}
+                alt={video.title}
+              />
+            ) : (
+              <img
+                className="video-banner"
+                src={video.cover_image}
+                alt={video.title}
+              />
+            )}
+          </Link>
+        </div>
         <div className="card-content">
           <div className="channel-avatar">
             {video.creator.charAt(0).toUpperCase()}
@@ -54,7 +60,7 @@ export function Videocard({ video, onRemove }) {
                   <button
                     className="add-to-playlist-btn text-danger"
                     onClick={(e) => {
-                      e.preventDefault();
+                      e.stopPropagation();
                       onRemove(video);
                       showToast("Video removed", "success");
                     }}
@@ -66,7 +72,7 @@ export function Videocard({ video, onRemove }) {
                 <button
                   className="add-to-playlist-btn"
                   onClick={(e) => {
-                    e.preventDefault();
+                    e.stopPropagation();
                     setShowPlaylistModal(true);
                   }}
                   title="Save to Playlist"

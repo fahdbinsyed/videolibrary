@@ -8,7 +8,7 @@ import { Videocard } from "components/videolisting/Videocard";
 
 export function SinglePlaylistPage() {
   const { playlistId } = useParams();
-  const { playlistState } = useData();
+  const { playlistState, removeVideoFromPlaylist } = useData();
   const { playlists } = playlistState;
 
   const playlist = playlists.find((p) => p._id === playlistId);
@@ -28,7 +28,7 @@ export function SinglePlaylistPage() {
                     <Videocard 
                       video={video} 
                       key={video._id} 
-                      onRemove={(v) => playlistDispatch({ type: "REMOVE_FROM_PLAYLIST", payload: { playlistId: playlist._id, videoId: v._id } })} 
+                      onRemove={(v) => removeVideoFromPlaylist(playlist._id, v._id)} 
                     />
                   ))
                 ) : (

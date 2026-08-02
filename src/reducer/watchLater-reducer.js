@@ -20,9 +20,11 @@ export const watchlaterReducer = (state, action) => {
         ...state,
         watchlater: [...watchlater.filter((item) => item._id !== payload._id)],
       };
+    case "SET_WATCHLATER":
+      return { ...state, watchlater: payload };
     case "CLEAR":
-      return payload;
-    case "default":
+      return { watchlater: [] };
+    default:
       return state;
   }
 };

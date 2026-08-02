@@ -2,6 +2,18 @@ import { v4 as uuid } from "uuid";
 
 export const playlistReducer = (state, action) => {
   switch (action.type) {
+    case "SET_PLAYLISTS":
+      return {
+        ...state,
+        playlists: action.payload,
+      };
+    case "UPDATE_PLAYLIST":
+      return {
+        ...state,
+        playlists: state.playlists.map((p) =>
+          p._id === action.payload._id ? action.payload : p
+        ),
+      };
     case "CREATE_PLAYLIST":
       return {
         ...state,
