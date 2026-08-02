@@ -6,8 +6,11 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useData } from "context/Data-context";
 
+import { useAuth } from "context/Auth-context";
+
 export default function Navbar() {
   const { setSidebar } = useData();
+  const { user, loginWithGoogle, logout } = useAuth();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
@@ -69,8 +72,35 @@ export default function Navbar() {
 
       <div className="profile-container">
         <div className="premium-avatar" onClick={() => setIsProfileOpen(!isProfileOpen)}>
-          I
+          {user && user.photoURL ? (
+            <img src={user.photoURL} alt="Profile" className="avatar-img" />
+          ) : user && user.displayName ? (
+            user.displayName.charAt(0).toUpperCase()
+          ) : (
+            <CgProfile style={{ fontSize: '1.4rem' }} />
+          )}
         </div>
+        
+        {isProfileOpen && (
+          <div className="profile-dropdown">
+            {user ? (
+              <>
+                <div className="dropdown-user-info">
+                  <p className="dropdown-name">{user.displayName}</p>
+                  <p className="dropdown-email">{user.email}</p>
+                </div>
+                <hr className="dropdown-divider" />
+                <button className="dropdown-item text-danger" onClick={() => { logout(); setIsProfileOpen(false); }}>
+                  Sign Out
+                </button>
+              </>
+            ) : (
+              <button className="dropdown-item" onClick={() => { loginWithGoogle(); setIsProfileOpen(false); }}>
+                Sign in with Google
+              </button>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

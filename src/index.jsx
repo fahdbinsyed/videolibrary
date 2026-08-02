@@ -6,13 +6,17 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { DataProvider } from "context/Data-context";
 
 
+import { AuthProvider } from "context/Auth-context";
+
 ReactDOM.render(
   <React.StrictMode>
-    <DataProvider>
-      <Router>
-        <App />
-      </Router>
-    </DataProvider>
+    <AuthProvider>
+      <DataProvider>
+        <Router>
+          <App />
+        </Router>
+      </DataProvider>
+    </AuthProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
