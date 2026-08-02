@@ -5,201 +5,203 @@
 
 export const videos = [
   {
-    _id: "AFEZzf9_EHk",
-    title:
-      "Rohit Sharma Hits 140! | India v Pakistan - Match Highlights | ICC Cricket World Cup 2019",
-    creator: "ICC",
-    category: "World Cup",
-    uploaded: "Jan 12 2021",
-    description:
-      "Watch full highlights of the India vs Pakistan match at Old Trafford, Game 22 of the 2019 Cricket World Cup.",
-    platform: "youtube",
-    type: "video"
+    "_id": "kCfTEoeQvQw",
+    "title": "Javascript Interview Questions ( Debouncing and Throttling ) - Implementation, Examples etc",
+    "creator": "RoadsideCoder",
+    "category": "Frontend",
+    "uploaded": "Oct 02 2022",
+    "description": "Javascript Interview Questions on Debouncing and Throttling will be discussed in this video including its Polyfills, Implementation, Examples etc.",
+    "platform": "youtube",
+    "type": "video"
   },
   {
-    _id: "Lz5098-SeFY",
-    title: "England v South Africa 2017 T20",
-    creator: "England & Wales Cricket Board",
-    category: "Others",
-    uploaded: "Dec 23 2015",
-    description:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
-    platform: "youtube",
-    type: "video"
+    "_id": "2XF-HgauItk",
+    "title": "Full Stack React JS Project ( Job Portal ) - with Tailwind, Supabase, Clerk, Shadcn UI Tutorial",
+    "creator": "RoadsideCoder",
+    "category": "Full Stack",
+    "uploaded": "Aug 18 2024",
+    "description": "Build a Full Stack Job Portal in React JS with Tailwind CSS, Supabase, Clerk Authentication Shadcn UI Tutorial.",
+    "platform": "youtube",
+    "type": "video"
   },
   {
-    _id: "9lF4d4w84uM",
-    title: "India Vs England 2014 - Highlights",
-    creator: "England & Wales Cricket Board",
-    category: "Others",
-    uploaded: "Jan 1 2021",
-    description:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
-    platform: "youtube",
-    type: "video"
-  },
-
-  {
-    _id: "Ut9BZtWoPVM",
-    title: "World Record Sixes",
-    creator: "Windies Cricket",
-    category: "Others",
-    uploaded: "Jan 12 2021",
-    description:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
-    platform: "youtube",
-    type: "video"
+    "_id": "2CsVKitr1yc",
+    "title": "Build Your 1st RAG System| Embeddings, Vectors in Tamil",
+    "creator": "Data Engineering",
+    "category": "RAG",
+    "uploaded": "Aug 25 2023",
+    "description": "Ready to build your very first Retrieval-Augmented Generation (RAG) system? In this video, I'll walk you through the complete process.",
+    "platform": "youtube",
+    "type": "video"
   },
   {
-    _id: "ZYvgMaH_I-U",
-    title:
-      "Warne's Ball of the Century! | BIGGEST Spinning Deliveries of all Time! | England Cricket",
-    creator: "England & Wales Cricket Board",
-    category: "Others",
-    uploaded: "Jan 12 2021",
-    description:
-      "Take a look back at some of the biggest and best spinning deliveries of all time! Featuring Shane Warne's classic 'Ball of the Century', Murali magic and classics from Michael Vaughan and more!",
-    platform: "youtube",
-    type: "video"
+    "_id": "_HQ2H_0Ayy0",
+    "title": "RAG Explained For Beginners",
+    "creator": "KodeKloud",
+    "category": "RAG",
+    "uploaded": "Aug 13 2023",
+    "description": "A comprehensive guide to Retrieval Augmented Generation (RAG), vector search architecture, and embeddings.",
+    "platform": "youtube",
+    "type": "video"
   },
   {
-    _id: "EJkNBr1gdjY",
-    title: "KKR vs RCB: Virat, AB guide RCB to easy win",
-    creator: "DisneyPlus Hotstar",
-    category: "IPL",
-    uploaded: "May 17 2016",
-    description:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
-    platform: "youtube",
-    type: "video"
+    "_id": "QGAuolgCTHE",
+    "title": "Python Tutorial For Beginners in Tamil (Machine Learning & Notes Included)",
+    "creator": "AI Coach John (Tamil)",
+    "category": "Python",
+    "uploaded": "Jun 19 2023",
+    "description": "Learn Python data structures for AI applications. Essential foundations for LLMs, LangChain, and RAG.",
+    "platform": "youtube",
+    "type": "video"
   },
   {
-    _id: "amMJfaB5dXo",
-    title: "Rohit Hundred Seals Win | South Africa vs India",
-    creator: "ICC",
-    category: "World Cup",
-    uploaded: "Jun 5 2019",
-    description:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
-    platform: "youtube",
-    type: "video"
+    "_id": "nAmC7SoVLd8",
+    "title": "LangChain Crash Course For Beginners | LangChain Tutorial",
+    "creator": "codebasics",
+    "category": "LangChain",
+    "uploaded": "Jun 30 2023",
+    "description": "Learn how to build GenAI apps using LangChain and OpenAI API.",
+    "platform": "youtube",
+    "type": "video"
   },
   {
-    _id: "ynG6tkLO3SQ",
-    title:
-      "Afghanistan SO Close To Upset! | India v Afghanistan - Match Highlights | ICC Cricket World Cup 2019",
-    creator: "ICC",
-    category: "World Cup",
-    uploaded: "Jun 22 2019",
-    description:
-      "Watch full highlights of the India vs Afghanistan match at Hampshire Bowl, Game 28 of the 2019 Cricket World Cup.",
-    platform: "youtube",
-    type: "video"
+    "_id": "4cQWJViybAQ",
+    "title": "n8n Quick Start Tutorial: Build Your First Workflow",
+    "creator": "n8n",
+    "category": "n8n",
+    "uploaded": "Jun 20 2023",
+    "description": "A complete beginner's crash course on building automated workflows using n8n.",
+    "platform": "youtube",
+    "type": "video"
   },
   {
-    _id: "e6KnGR9MqFA",
-    title:
-      "Mohammad Shahzad I 74 from 16 Balls I The fastest 50 in T10 format I T10 League I Season 2",
-    creator: "T20 League Official",
-    category: "Others",
-    uploaded: "Nov 25 2018",
-    description:
-      "Afghanistan batsman Mohammad Shahzad set the T10 League Season 2 on fire after smashing an unbeaten 74 off just 16 balls in the tournament opener. His innings helped the Rajputs beat the Sindhis by 10 wickets. Must Watch Power hitting!!!",
-    platform: "youtube",
-    type: "video"
+    "_id": "lzcdF42vq6E",
+    "title": "Big Data On Cloud AWS EMR {தமிழ்}",
+    "creator": "Data Engineering",
+    "category": "Cloud",
+    "uploaded": "Feb 05 2021",
+    "description": "Learn the basics of AWS Cloud Data Engineering concepts in Tamil, focusing on Amazon EMR and Big Data.",
+    "platform": "youtube",
+    "type": "video"
   },
   {
-    _id: "z_eXA2gYkgc",
-    title:
-      "1st T20I | India Tour of Australia 2020-21 | Highlights | 4th December, 2020",
-    creator: "SonyLIV",
-    category: "Others",
-    uploaded: "Dec 12 2020",
-    description:
-      "India entered the first T20I match of the series against Australia with a point to prove and did exactly that as they proceeded to defeat the hosts by 11 runs. Coming in to bat first, KL Rahul was the only one who got things going for India with a fantastic inning of 51 runs. He was ably supported by Ravindra Jadeja, whose last-moment blitzkrieg took India to a respectable score of 161 for seven. Australian came in to bat, and, D Arcy Short skipper Aaron Finch gave a bright start. The pair scored 30 runs each but failed to convert it into a big score as Australia lost the match by 11 runs. Even Moises Henriques 30-run cameo couldn't save them. For India, Yuzvendra Chahal and T Natarajan had dream spells as they took three important wickets each.",
-    platform: "youtube",
-    type: "video"
+    "_id": "abbdJ4Yfm54",
+    "title": "Frontend Interview Experience (Unacademy) - Javascript and React JS Interview Questions",
+    "creator": "RoadsideCoder",
+    "category": "Frontend",
+    "uploaded": "Feb 13 2022",
+    "description": "Master the most frequently asked React JS interview questions directly from real interview experiences.",
+    "platform": "youtube",
+    "type": "video"
   },
   {
-    _id: "uE0R6BjB4mI",
-    title:
-      "Australia vs India 2020-21 | 2nd T20I | Highlights | 6th December, 2020",
-    creator: "Sony Sports Network",
-    category: "Others",
-    uploaded: "Jan 12 2021",
-    description:
-      "Hardik Pandya took India to a T20I series win against Australia in the second match of the three-match series. For the Australians, stand-in skipper Matthew Wade and Steve Smith played beautifully with an innings of 58 and 46 respectively. The hosts finished with an above-par score of 194 for five after 20 overs. The Indians came in to bat and were off to a fantastic start thanks to the incredible knocks of KL Rahul, Shikhar Dhawan, and Virat Kohli. Hardik Pandya and Shreyas Iyer came in and gave the finishing touches as India won the match by six wickets and two balls to spare.",
-    platform: "youtube",
-    type: "video"
+    "_id": "ib5_HfCwqL4",
+    "title": "Web Developer Roadmap 2024 with GenAI",
+    "creator": "RoadsideCoder",
+    "category": "Full Stack",
+    "uploaded": "Dec 28 2023",
+    "description": "A complete guide to navigating the web development ecosystem and leveraging AI tools.",
+    "platform": "youtube",
+    "type": "video"
   },
   {
-    _id: "TdzXkTVMaho",
-    title:
-      "Chahar Takes Three Wickets in Four Overs | Windies vs India - Match Highlights | 3rd IT20 2019",
-    creator: "Windies Cricket",
-    category: "Others",
-    uploaded: "Aug 7 2019",
-    description:
-      "Watch full highlights from the 3rd international T20 between Windies and India in Florida. This is the official channel for the West Indies cricket team, providing all the latest highlights, interviews and features to keep you up to date with all things Windies.",
-    platform: "youtube",
-    type: "video"
+    "_id": "0BRC_6_0zVU",
+    "title": "Nodejs - Create API from scratch (CRUD) | Backend | MongoDB | Tamil",
+    "creator": "CyberDude Networks Pvt. Ltd.",
+    "category": "Backend",
+    "uploaded": "May 09 2024",
+    "description": "Understand scalable backend architecture using Node.js, Express, and MongoDB. Explained clearly in Tamil.",
+    "platform": "youtube",
+    "type": "video"
   },
   {
-    _id: "kvOHKfcfcc4",
-    title:
-      "Honours split on day one at the Gabba after Labuschagne ton | Vodafone Test Series 2020-21",
-    creator: "Cricket.com.au",
-    category: "Others",
-    uploaded: "Jan 12 2021",
-    description:
-      "Marnus Labuschange's century was the highlight for the hosts, while India's rookie bowling attack took up the fight to Australia on day one of the fourth Test in Brisbane.",
-    platform: "youtube",
-    type: "video"
+    "_id": "bjWiBQkWNQY",
+    "title": "Tamil - .Net Core MVC (Model -View -Controller ) Tutorial - Beginners to Expert",
+    "creator": "CodeWithKarthik",
+    "category": "Dot Net",
+    "uploaded": "Aug 01 2023",
+    "description": "Complete .NET Core MVC tutorial in Tamil. Learn routing, controllers, and architecture.",
+    "platform": "youtube",
+    "type": "video"
   },
   {
-    _id: "tyncgEZpgjk",
-    title:
-      "Cummins and Lyon strike for Aussies before storm arrives | Vodafone Test Series 2020-21",
-    creator: "Cricket.com.au",
-    category: "Others",
-    uploaded: "Jan 16 2021",
-    description:
-      "India reached 2-62 at the Gabba before the rain arrived, frustrating Australia's hunt for wickets on day two.",
-    platform: "youtube",
-    type: "video"
+    "_id": "S7MNX_UD7vY",
+    "title": "FREE CCNA // What is a Network? // Day 0",
+    "creator": "NetworkChuck",
+    "category": "Networking",
+    "uploaded": "Jul 04 2020",
+    "description": "An engaging, hands-on introduction to computer networking, covering IP addresses, routers, and switches.",
+    "platform": "youtube",
+    "type": "video"
   },
   {
-    _id: "o6-6WWUfY8U",
-    title:
-      "Captain KOHLI Hits Back For India with a STUNNING Century Against Australia in Perth",
-    creator: "Amazon Prime Video Sport",
-    category: "Others",
-    uploaded: "Nov 08 2020",
-    description:
-      "With India in a spot of trouble at the Optus Stadium in Perth, captain Virat Kohli stands up with a superb hundred that receives praise from the Australian coach and captain.",
-    platform: "youtube",
-    type: "video"
+    "_id": "9pZ2xmsSDdo",
+    "title": "DevOps Roadmap - How to become a DevOps Engineer?",
+    "creator": "TechWorld with Nana",
+    "category": "DevOps",
+    "uploaded": "Jan 17 2021",
+    "description": "A complete DevOps roadmap for beginners. Learn about CI/CD, Docker, Kubernetes, Jenkins, and IaC.",
+    "platform": "youtube",
+    "type": "video"
   },
   {
-    _id: "1668658005",
-    title: "Cyber Security Fundamentals Podcast",
-    creator: "CyberSec Network",
-    category: "Others",
-    uploaded: "Mar 15 2023",
-    description: "An overview of cybersecurity fundamentals, exploring modern threats and best practices for data protection.",
-    platform: "soundcloud",
-    type: "audio",
-    cover_image: "https://images.unsplash.com/photo-1510511459019-5d05b47f5e6b?auto=format&fit=crop&q=80&w=800"
+    "_id": "8c4oEuANkTQ",
+    "title": "Kubernetes Explained in Tamil 🔥 | What is Kubernetes?",
+    "creator": "Simply Byte - Tamil",
+    "category": "DevOps",
+    "uploaded": "Jun 19 2023",
+    "description": "Learn Kubernetes orchestration, pods, nodes, and deployments in this clear Tamil language tutorial.",
+    "platform": "youtube",
+    "type": "video"
   },
   {
-    _id: "4308703",
-    title: "Frontend Development Interviews",
-    creator: "DevTalks",
-    category: "Others",
-    uploaded: "Aug 12 2022",
-    description: "Discussing modern frontend development interview questions, React fundamentals, and system design.",
-    platform: "spreaker",
-    type: "audio",
-    cover_image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800"
+    "_id": "pMeumnw5GYE",
+    "title": "Build WhatsApp AI Agent using n8n | Step by Step guide in Tamil",
+    "creator": "The AI Dude - Tamil",
+    "category": "n8n",
+    "uploaded": "Oct 07 2023",
+    "description": "Step-by-step tutorial in Tamil on how to use n8n to build automated WhatsApp workflows.",
+    "platform": "youtube",
+    "type": "video"
+  },
+  {
+    "_id": "LbT1yp6quS8",
+    "title": "LangChain Crash Course - Build apps with language models",
+    "creator": "Patrick Loeber",
+    "category": "LangChain",
+    "uploaded": "Apr 09 2023",
+    "description": "Master LangChain and build LLM applications fast. Covers Chains, Agents, Memory, and Prompts in Python.",
+    "platform": "youtube",
+    "type": "video"
+  },
+  {
+    "_id": "f42cN24aG30",
+    "title": "Object Oriented Programming (OOPS) in C# Explained in Tamil",
+    "creator": "Kaalaratham Tamil Tholaikaatchi",
+    "category": "Dot Net",
+    "uploaded": "Nov 03 2021",
+    "description": "Deep dive into Object Oriented Programming concepts in C# including inheritance, polymorphism, and encapsulation.",
+    "platform": "youtube",
+    "type": "video"
+  },
+  {
+    "_id": "L15ctzu_clE",
+    "title": "Frontend Machine Coding Interview ( Countdown Timer Question ) in Javascript",
+    "creator": "RoadsideCoder",
+    "category": "Frontend",
+    "uploaded": "Nov 13 2022",
+    "description": "Everything you need to know to ace your UI/Frontend machine coding rounds.",
+    "platform": "youtube",
+    "type": "video"
+  },
+  {
+    "_id": "veGefarHLYk",
+    "title": "Azure Tutorial For Beginners in Tamil | Azure Devops Tutorial",
+    "creator": "BTree Systems",
+    "category": "Cloud",
+    "uploaded": "Apr 01 2024",
+    "description": "Learn Microsoft Azure fundamentals in Tamil. Overview of cloud concepts and pipelines.",
+    "platform": "youtube",
+    "type": "video"
   }
-];
+]
